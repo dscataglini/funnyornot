@@ -1,0 +1,15 @@
+%h1 Listing funnies
+= link_to 'Upload a Funny', new_funny_path unless current_user.visitor?
+
+%ul
+  - @funnies.each do |funny|
+    %li
+      %div= funny.title
+      %div= link_to image_tag(funny.pic.url(:medium)), funny
+      .actions
+      - if current_user && funny.user == current_user
+        = link_to 'Edit', edit_funny_path(funny)
+        = link_to 'Destroy', funny, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+

@@ -7,9 +7,9 @@
   = csrf_meta_tags
 
 %body
-  - if current_user
+  - if current_user.visitor?
+    = link_to "Sign in with Facebook", "/auth/facebook"
+  - else
     Welcome #{current_user.name}!
     = link_to "Sign Out", signout_path
-  - else
-    = link_to "Sign in with Facebook", "/auth/facebook"
   = yield

@@ -1,0 +1,8 @@
+%p#notice= notice
+
+%h1= @funny.title
+%div= image_tag @funny.pic.url(:large)
+
+= link_to 'Edit', edit_funny_path(@funny) if current_user.owns?(@funny)
+\|
+= link_to 'Back', funnies_path

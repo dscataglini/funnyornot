@@ -9,4 +9,12 @@ class User < ActiveRecord::Base
       user.name = auth["info"]["name"]
     end
   end
+
+  def owns?(funny)
+    funny.user_id == self.id
+  end
+
+  def visitor?
+    false
+  end
 end
