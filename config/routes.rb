@@ -3,7 +3,13 @@ Hotornot::Application.routes.draw do
   match "/auth/:provider/callback", to: "sessions#create"
   match "/auth/failure", to: "sessions#failure" #redirect('/', status: 302)
   match "/signout", to: "sessions#destroy", as: :signout
-  resources :funnies
+  resources :funnies do
+    member do
+      get :upvote
+      get :downvote
+    end
+  end
+
   root to: "funnies#index"
   #
   # The priority is based upon order of creation:

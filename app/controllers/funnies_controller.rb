@@ -11,6 +11,24 @@ class FunniesController < ApplicationController
     end
   end
 
+  def upvote
+    if (@funny = Funny.find(params[:id]))
+      current_user.upvote(@funny)
+      redirect_to @funny
+    else
+      redirect_to @funny, notice: "Couldn't find your funny pic"
+    end
+  end
+
+  def downvote
+    if (@funny = Funny.find(params[:id]))
+      current_user.downvote(@funny)
+      redirect_to @funny
+    else
+      redirect_to @funny, notice: "Couldn't find your funny pic"
+    end
+  end
+
   # GET /funnies/1
   # GET /funnies/1.json
   def show
