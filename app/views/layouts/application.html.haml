@@ -12,4 +12,7 @@
   - else
     Welcome #{current_user.name}!
     = link_to "Sign Out", signout_path
+
+  .notice= flash[:notice]
+
   = yield

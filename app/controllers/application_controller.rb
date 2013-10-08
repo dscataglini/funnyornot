@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def must_by_logged_in
-    redirect_to root_path if current_user.visitor?
+    redirect_to root_path, notice: "You must be logged in to do this" if current_user.visitor?
   end
 
   private
