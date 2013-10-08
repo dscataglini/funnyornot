@@ -19,4 +19,15 @@ We're going to deploy to heroku and upload the images to s3
 each user will be able to upload many "funnies"
 rails g model funny title:string
 
+Tie the User and Funny models together with has_many :funnies  & belong_to :user
+
+Add a scaffold for the funnies and adjust views accordingly
+rails g scaffold_controller funnies title:string pic
+
+Add a must_be_logged_in filter and scope all editing actions by current_user
+
+Add a Visitor class to eliminate many guards like "if current_user"
+
+Add a Voting mechanism
+
 

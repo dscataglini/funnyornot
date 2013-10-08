@@ -12,4 +12,16 @@ class Funny < ActiveRecord::Base
                     :default_url => "/images/:style/missing.png"
   validates :title, length: { minimum: 2 }
   validates :title, presence: true
+
+  def upvoted!
+    self.upvotes = self.upvotes.succ
+    self.netvotes = self.netvotes.succ
+    save!
+  end
+
+  def downvoted!
+    self.downvotes = self.ownvotes.pred
+    self.netvotes = self.netvotes.pred
+    save!
+  end
 end

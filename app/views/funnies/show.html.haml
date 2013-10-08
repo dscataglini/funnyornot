@@ -2,6 +2,7 @@
 
 %h1= @funny.title
 %div= image_tag @funny.pic.url(:large)
+%div Current Score #{@funny.netvotes}
 - unless current_user.voted?(@funny)
   = link_to "+1", upvote_funny_path(@funny)
   = link_to "-1", downvote_funny_path(@funny)

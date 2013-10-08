@@ -6,6 +6,7 @@
     %li
       %div= funny.title
       %div= link_to image_tag(funny.pic.url(:medium)), funny
+      %div Score: #{funny.netvotes}
       .actions
       - if current_user && funny.user == current_user
         = link_to 'Edit', edit_funny_path(funny)

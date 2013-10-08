@@ -31,8 +31,11 @@ ActiveRecord::Schema.define(:version => 20131008181327) do
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.integer  "upvotes",          :default => 0
+    t.integer  "downvotes",        :default => 0
+    t.integer  "netvotes",         :default => 0
   end
 
   create_table "users", :force => true do |t|

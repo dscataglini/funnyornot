@@ -26,11 +26,13 @@ class User < ActiveRecord::Base
 
   def upvote(funny)
     return if voted?(funny)
-    casted_votes.create({funny: funny, value: 1}, as: :admin )
+    casted_votes.create!({funny: funny, value: 1}, as: :admin )
+    funny.upvoted!
   end
 
   def downvote(funny)
     return if voted?(funny)
-    casted_votes.create({funny: funny, value: -1}, as: :admin )
+    casted_votes.create!({funny: funny, value: -1}, as: :admin )
+    funny.downvoted!
   end
 end
