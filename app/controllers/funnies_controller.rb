@@ -3,7 +3,7 @@ class FunniesController < ApplicationController
   # GET /funnies
   # GET /funnies.json
   def index
-    @funnies = Funny.all
+    @funnies = Funny.order("created_at desc").all
 
     respond_to do |format|
       format.html # index.html.erb

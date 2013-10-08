@@ -6,8 +6,9 @@ class Funny < ActiveRecord::Base
 
   has_attached_file :pic,
                     :styles => {
-                                :medium => "300x300>",
-                                :large => "800x800>"
+                                :thumbnail => "90x",
+                                :medium => "300x",
+                                :large => "500x"
                                },
                     :default_url => "/images/:style/missing.png"
   validates :title, length: { minimum: 2 }
