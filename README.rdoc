@@ -2,6 +2,8 @@
 
 We're going to use haml
 so we'll add haml & haml-rails to the gem file
+* http://haml.info/
+
 
 Implement facebook authentication with omniauth
 * https://github.com/intridea/omniauth
