@@ -6,6 +6,10 @@ class SessionsController < ApplicationController
     redirect_to root_url, :notice => "Signed in!"
   end
 
+  def failure
+    render json: params
+  end
+
   def destroy
     session[:user_id] = nil
     redirect_to root_url, :notice => "Signed out!"
