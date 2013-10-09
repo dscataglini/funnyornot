@@ -21,7 +21,7 @@ class Funny < ActiveRecord::Base
   end
 
   def downvoted!
-    self.downvotes = self.ownvotes.pred
+    self.downvotes = self.downvotes.pred
     self.netvotes = self.netvotes.pred
     save!
   end
